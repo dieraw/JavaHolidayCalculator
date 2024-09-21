@@ -3,27 +3,55 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
+    <groupId>com</groupId>
     <artifactId>holiday-calculator</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <java.version>11</java.version>
-        <spring-boot.version>2.6.6</spring-boot.version>
+        <spring-boot.version>2.6.6</spring-boot.version> <!-- Версия Spring Boot -->
+        <assertj.version>3.26.3</assertj.version>
     </properties>
+
 
     <dependencies>
         <!-- Spring Boot Starter Web для создания REST API -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version> <!-- Указана версия -->
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.26.3</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- Spring Boot Starter Test для тестирования -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <version>${spring-boot.version}</version> <!-- Указана версия -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.8.2</version>
         </dependency>
     </dependencies>
 
@@ -33,6 +61,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version> <!-- Указана версия плагина -->
             </plugin>
         </plugins>
     </build>

@@ -1,7 +1,7 @@
 package com.holidaycalculator.controller;
 
-import com.example.holidaycalculator.model.CalculationResponse;
-import com.example.holidaycalculator.service.CalculatorService;
+import com.holidaycalculator.model.CalculationResponse;
+import com.holidaycalculator.service.CalculatorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
