@@ -1,10 +1,12 @@
 package com.holidaycalculator.controller;
 
-import com.holidaycalculator.model.CalculationResponse;
 import com.holidaycalculator.service.CalculatorService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 public class CalculatorController {
@@ -16,10 +18,15 @@ public class CalculatorController {
     }
 
     @GetMapping("/calculate")
-    public CalculationResponse calculateHolidayPayment(
-            @RequestParam("averageSalary") double averageSalary,
-            @RequestParam("vacationDays") int vacationDays) {
-        double totalPayment = calculatorService.calculateVacationPay(averageSalary, vacationDays);
-        return new CalculationResponse(totalPayment);
+    public double calculateVacationPay(
+            @RequestParam double averageSalary,
+            @RequestParam int vacationDays,
+            @RequestParam(required = false) List<LocalDate> vacationDates) {
+
+        if (vacationDates != null && !vacationDates.isEmpty()) {
+            return calculatorService.calculateVacationPayWithDates(averageSalary, vacationDates);
+        } else {
+            return calculatorService.calculateVacationPay(averageSalary, vacationDays);
+        }
     }
 }
