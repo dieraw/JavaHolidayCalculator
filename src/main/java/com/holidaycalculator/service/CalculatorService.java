@@ -12,7 +12,9 @@ public class CalculatorService {
     // Базовый расчет отпускных на основе количества дней
     public double calculateVacationPay(double averageSalary, int vacationDays) {
         double dailySalary = averageSalary / 29.3; // базовый расчет
-        return dailySalary * vacationDays;
+        double vacationPay = dailySalary * vacationDays;
+        return Double.parseDouble(String.format("%.2f", vacationPay));
+
     }
 
     // Новый метод для расчета отпускных с учетом дат ухода в отпуск
@@ -20,6 +22,8 @@ public class CalculatorService {
         double dailySalary = averageSalary / 29.3;
         // Используем утилиту для подсчета рабочих дней (без праздников и выходных)
         int workingDays = WorkingDaysCalculator.countWorkingDays(vacationDates);
-        return dailySalary * workingDays;
+        double vacationPay = dailySalary * workingDays;
+        return Double.parseDouble(String.format("%.2f", vacationPay));
+
     }
 }

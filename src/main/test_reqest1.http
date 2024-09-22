@@ -1,4 +1,4 @@
 ### GET request to example server
-GET http://localhost:8080/calculate?averageSalary=60000&vacationDays=14
-
+GET http://localhost:8080/calculate?averageSalary=60000&vacationDays=14;
 ###
+GET http://localhost:8080/calculate?averageSalary=60000&vacationDates=2024-05-01,2024-05-02,2024-05-03
