@@ -7,13 +7,15 @@ import java.util.Set;
 
 public class WorkingDaysCalculator {
 
-    // Список праздничных дней (можно расширить для поддержки динамических праздников)
+    // Список фиксированных праздников (можно расширить или подгружать из базы данных)
     private static final Set<LocalDate> HOLIDAYS = Set.of(
             LocalDate.of(2024, 1, 1), // Новый год
-            LocalDate.of(2024, 5, 1)  // День труда
-            // Добавьте сюда другие праздничные дни
+            LocalDate.of(2024, 5, 1), // День труда
+            LocalDate.of(2024, 12, 25) // Рождество
+            // Добавляйте другие праздники по мере необходимости
     );
 
+    // Метод для подсчета рабочих дней в списке отпускных дат
     public static int countWorkingDays(List<LocalDate> vacationDates) {
         int workingDays = 0;
 

@@ -16,6 +16,6 @@ public class CalculatorServiceTest {
         double expectedPay = 28669.97; // вручную рассчитанное значение
 
         double result = calculatorService.calculateVacationPay(averageSalary, vacationDays);
-        assertEquals(expectedPay, result, 0.01); // проверка с точностью до 0.01
+        assertEquals(expectedPay, result, 0.01);
     }
 }

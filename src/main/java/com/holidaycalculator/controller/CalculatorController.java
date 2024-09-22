@@ -23,9 +23,11 @@ public class CalculatorController {
             @RequestParam int vacationDays,
             @RequestParam(required = false) List<LocalDate> vacationDates) {
 
+        // Если переданы конкретные даты, считаем отпускные с учетом рабочих дней
         if (vacationDates != null && !vacationDates.isEmpty()) {
             return calculatorService.calculateVacationPayWithDates(averageSalary, vacationDates);
         } else {
+            // Если даты не указаны, считаем отпускные по количеству дней отпуска
             return calculatorService.calculateVacationPay(averageSalary, vacationDays);
         }
     }
